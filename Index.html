@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to NAVA!</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<body>
+    <div class="main">
+
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">NAVA</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#">JOIN</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <h1>Welcome to NAVA</h1>
+            <p class="par">
+                Hey! Welcome to NAVA <br>
+                Here you can search, browse, and even download as much as you want. 
+                
+            </p>
+
+
+            <div class="search-container">
+                <form id="searchForm" class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search">
+                </form>
+            </div>
+
+
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+
+    <script>
+        const fixedLink = "https://archive.org/compress/planet_earth_1_bbc/formats=MPEG4&file=/planet_earth_1_bbc.zip"; 
+        const form = document.getElementById("searchForm");
+        const input = document.querySelector(".search-input");
+        const resultsDiv = document.getElementById("searchResults");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // clear the text
+            input.value = "";
+
+            // show the link
+            resultsDiv.innerHTML = `
+                <p>Here’s your link: 
+                   <a href="${fixedLink}" target="_blank">${fixedLink}</a>
+                </p>
+            `;
+
+            // reload the page after 15 seconds (only now!)
+            setTimeout(() => {
+                location.reload();
+            }, 15000);
+        });
+    </script>
+</body>
+</html>
